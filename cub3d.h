@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/12 13:01:13 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:22:47 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,10 @@
 # include "libft/libft.h"
 # include "libft/get_next_line.h"
 # include "libft/ft_printf.h"
+
+//============================ERRORS============================
+int	allerrors(int i);
+//============================PARSING============================
+int	check_map_exten(const char *map);
 
 #endif

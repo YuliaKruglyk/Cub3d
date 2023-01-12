@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/12 13:27:17 by zyunusov         ###   ########.fr       */
+/*   Created: 2023/01/12 13:12:41 by zyunusov          #+#    #+#             */
+/*   Updated: 2023/01/12 13:28:14 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int	main(int argc, char **argv)
+int	allerrors(int i)
 {
-	if (argc != 2)
-		return (allerrors(1));
-	if (check_map_exten(argv[1]))
-		return (allerrors(3));
+	if (i == 1)
+		ft_putstr_fd("Error\nUsage: ./cub3d MAP.cub\n", 2);
+	else if (i == 2)
+		ft_putstr_fd("Error\nCannot read the map\n", 2);
+	else if (i == 3)
+		ft_putstr_fd("Error\nThe extension of map must be .cub\n", 2);
+	return (1);
 }

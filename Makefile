@@ -6,7 +6,7 @@
 #    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-#    Updated: 2023/01/12 12:37:29 by zyunusov         ###   ########.fr        #
+#    Updated: 2023/01/12 13:29:19 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC		:= cc
 CFLAGS	:= -Wall -Werror -Wextra -I./mlx
 #Sources
 SRC_ROOT		:= src/
-SRC_SUBDIRS		:= main parsing
+SRC_SUBDIRS		:= main parsing errors
 SRC_DIR			:= $(addprefix $(SRC_ROOT), $(SRC_SUBDIRS))
 SRCS			:= $(foreach subdir, $(SRC_DIR), $(wildcard $(subdir)/*.c))
 #Libft library
