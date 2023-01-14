@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:21:27 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/13 14:47:15 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:54:50 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ static int	parsing_direc_utils(t_cub3d *game, cahr *line,int s)
 		game->texture[s].ptr = mlx_xpm_file_to_image(game->mlx, line, \
 		(int *)&game->texture[s].width, (int *)&game->texture[s].height);
 	else
-		return (7);
+		return (allerrors(7));
 	if (game->texture[s].ptr == NULL)
 		return (allerrors(8));
+	return (0);
 }
 
 int	parsing_direc(t_cub3d *game, char *line)

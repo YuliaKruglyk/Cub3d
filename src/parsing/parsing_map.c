@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/13 14:13:21 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:56:52 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	parsing_tex(t_cub3d *game, int fd, char **line)
 int	parsing_map(t_cub3d *game, const char *map, int fd)
 {
 	char	*line;
-	
+
 	if ((parsing_tex(game, fd, &line)))
 		return (EXIT_FAILURE);
 	

@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:07 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/13 14:13:44 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:51:26 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ void	init_game(t_cub3d *game)
 	i = -1;
 	while (++i < 5)
 		game->texture[i].ptr = NULL;
+	game->mlx = mlx_init(); // destroy
 }

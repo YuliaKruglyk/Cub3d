@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/13 14:11:59 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:54:39 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@
 
 typedef struct s_texture
 {
-	void	*ptr;
+	void			*ptr;
+	unsigned int	width;
+	unsigned int	height;
 }	t_texture;
 
 typedef struct s_cub3d
 {
-	char		**map_comp;
-	t_texture	texture[4];	
+	void		*mlx;
+	t_texture	texture[4];
 }	t_cub3d;
 
 //============================ERRORS============================
