@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:12:41 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/13 14:43:53 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:24:51 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int	allerrors(int i)
 		\nUse .xpm files as textures\n", 2);
 	else if (i == 8)
 		ft_putstr_fd("Error\nCannot load textures\n", 2);
+	else if (i == 9)
+		ft_putstr_fd("Error\nCannot allocate memory\n", 2);
 	return (1);
 }
