@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/15 17:15:41 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:35:20 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 	ft_printf("tmp = %d\n", game->map_h_tmp);
 	if (calc_lines(game, map) < 3)
 		return (EXIT_FAILURE);
+	game->map_hght = game->map_hght - 1;
 	ft_printf("%d\n", game->map_hght);
 	game->map_comp = (char **)malloc(sizeof(char *) *game->map_hght);
 	if (!game->map_comp)
@@ -84,10 +85,11 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 	i = -1;
 	while (++i < (game->map_hght))
 	{
+		ft_printf("hght %d, %d\n", game->map_hght, i);
 		game->map_comp[i] = malloc(1000);
 		if (game->map_comp[i] == NULL)
 			return (free_map_comp(game));
-		ft_printf("%s", line);
+		// ft_printf("%s", line);
 		ft_memcpy(game->map_comp[i], line, ft_strlen(line));
 		game->map_comp[i][ft_strlen(line) - 1] = '\0';
 		free(line);
