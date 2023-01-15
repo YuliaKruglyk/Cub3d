@@ -6,13 +6,13 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:21:27 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/14 12:54:50 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:13:28 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-static int	parsing_direc_utils(t_cub3d *game, cahr *line,int s)
+static int	parsing_direc_utils(t_cub3d *game, char *line,int s)
 {
 	char	*tmp;
 	int		len;
@@ -29,6 +29,7 @@ static int	parsing_direc_utils(t_cub3d *game, cahr *line,int s)
 		return (allerrors(7));
 	if (game->texture[s].ptr == NULL)
 		return (allerrors(8));
+	// ft_printf("%s = %d = h, %d = w\n", game->texture[s].ptr, game->texture[s].height, game->texture[s].width);
 	return (0);
 }
 

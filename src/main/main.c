@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/13 14:08:14 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:10:23 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	cub3d(const char *map, int fd)
 {
-	t_cub3d	game;
+	t_cub3d	*game;
 
-	init_game(&game);
-	if (parsing_map(&game, map, fd))
-		return (EXIT_FAILURE);
+	game = ft_calloc(sizeof(t_cub3d), 1);
+	init_game(game);
+	if (parsing_map(game, map, fd))
+		exit(EXIT_FAILURE);
 	return (0);
 }
 
@@ -35,7 +36,7 @@ int	main(int argc, char **argv)
 		return (allerrors(2));
 	if (cub3d(argv[1], fd))
 	{
-		close(fd);
+		// close(fd);
 		return (EXIT_FAILURE);
 	}
 	close(fd);

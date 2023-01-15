@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/14 12:56:52 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:13:46 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ static int	parsing_tex(t_cub3d *game, int fd, char **line)
 
 	res = 0;
 	tmp = get_next_line(fd);
-	ft_printf("temporarly var = %s", tmp);
+	// ft_printf("temporarly var = %s", tmp);
 	*line = ft_strtrim(tmp, " ");
-	ft_printf("Line = %s", line);
 	free(tmp);
 	while ((*line) != NULL)
 	{
@@ -47,5 +46,6 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 
 	if ((parsing_tex(game, fd, &line)))
 		return (EXIT_FAILURE);
-	
+	(void)map;
+	return(0);
 }

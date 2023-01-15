@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/14 12:54:39 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:09:18 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include "libft/get_next_line.h"
 # include "libft/ft_printf.h"
+# include "mlx/mlx.h"
 # include <fcntl.h>
 
 typedef struct s_texture
@@ -32,10 +33,14 @@ typedef struct s_cub3d
 }	t_cub3d;
 
 //============================ERRORS============================
-int	allerrors(int i);
-//============================PARSING============================
-int	check_map_exten(const char *map);
+int		allerrors(int i);
+//==========================INITIALIZE==========================
+void	init_game(t_cub3d *game);
+//============================PARSING===========================
+int		check_map_exten(const char *map);
 // Function to start parsing the map
-int	parsing_map(t_cub3d *game, const cahr *map, int fd)
+int		parsing_map(t_cub3d *game, const char *map, int fd);
+//Function to read textures and parse
+int		parsing_direc(t_cub3d *game, char *line);
 
 #endif
