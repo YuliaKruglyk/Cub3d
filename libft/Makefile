@@ -6,7 +6,7 @@
 #    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 13:06:09 by zyunusov          #+#    #+#              #
-#    Updated: 2023/01/12 13:21:01 by zyunusov         ###   ########.fr        #
+#    Updated: 2023/01/16 13:31:11 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRCS	=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strle
 				ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
 				ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c get_next_line.c \
-				get_next_line_utils.c ft_print_hex.c ft_print_ptr.c ft_print_unsigned.c \
-				ft_print_utils.c ft_printf.c ft_strcmp.c\
+				ft_print_hex.c ft_print_ptr.c ft_print_unsigned.c \
+				ft_print_utils.c ft_printf.c ft_strcmp.c ft_strcat.c ft_strcpy.c\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 15:31:26 by bkeklik           #+#    #+#             */
-/*   Updated: 2022/10/28 19:06:43 by zyunusov         ###   ########.fr       */
+/*   Created: 2023/01/16 13:35:48 by zyunusov          #+#    #+#             */
+/*   Updated: 2023/01/16 13:35:49 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+char	*ft_strcpy(char *dst, const char *src)
+{
+	int	i;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-size_t	ft_strlen1(const char *str);
-char	*ft_join(char *str, char *buff);
-char	*ft_strchr(const char *str, int c);
-char	*ft_line(char *str);
-char	*ft_str(char *str);
-char	*ft_read_buff(int fd, char *str);
-char	*get_next_line(int fd);
-
-#endif
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}

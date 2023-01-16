@@ -5,49 +5,84 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 15:29:02 by bkeklik           #+#    #+#             */
-/*   Updated: 2022/10/28 19:06:52 by zyunusov         ###   ########.fr       */
+/*   Created: 2023/01/16 13:35:22 by zyunusov          #+#    #+#             */
+/*   Updated: 2023/01/16 13:35:24 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-char	*ft_read_buff(int fd, char *str)
+static char	*my_fill_str(int fd, char str[MAX_FD + 1][MAX_LEN_STR])
 {
-	int		rd;
-	char	*buff;
+	char			*buf;
+	int				qty_bytes;
 
-	buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (!buff)
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
 		return (NULL);
-	rd = 1;
-	while (!ft_strchr(str, '\n') && rd != 0)
+	qty_bytes = 1;
+	while (qty_bytes != 0 && !ft_strchr(str[fd], '\n'))
 	{
-		rd = read(fd, buff, BUFFER_SIZE);
-		if (rd == -1)
+		qty_bytes = read(fd, buf, BUFFER_SIZE);
+		if (qty_bytes == -1)
 		{
-			free(str);
-			free(buff);
+			free (buf);
 			return (NULL);
 		}
-		buff[rd] = '\0';
-		str = ft_join(str, buff);
+		buf[qty_bytes] = '\0';
+		ft_strcat(str[fd], buf);
 	}
-	free(buff);
-	return (str);
+	free (buf);
+	return (str[fd]);
+}
+
+static unsigned int	my_calc_len(char *s)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i] && s[i] != '\n')
+		i++;
+	if (s[i] == '\n')
+		i++;
+	return (i);
+}
+
+static char	*my_fill_outp(char *outp, char *src, unsigned int len_outp)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < len_outp)
+	{
+		outp[i] = src[i];
+		i++;
+	}
+	outp[i] = '\0';
+	ft_strcpy(src, &(src[i]));
+	return (outp);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*line;
-	static char	*str;
+	static char		str[MAX_FD + 1][MAX_LEN_STR];
+	char			*outp;
+	unsigned int	len_outp;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	str = ft_read_buff(fd, str);
-	if (!str)
+	if ((fd < 0) || (fd >= MAX_FD) || (BUFFER_SIZE <= 0))
 		return (NULL);
-	line = ft_line(str);
-	str = ft_str(str);
-	return (line);
+	my_fill_str(fd, str);
+	if (!str[fd])
+		return (NULL);
+	len_outp = my_calc_len(str[fd]);
+	outp = (char *)malloc(sizeof(char) * (len_outp + 1));
+	if (!outp)
+		return (NULL);
+	my_fill_outp(outp, str[fd], len_outp);
+	if (outp[0] == '\0')
+	{
+		free (outp);
+		return (NULL);
+	}
+	return (outp);
 }

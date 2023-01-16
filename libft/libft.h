@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:44:58 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/12 13:20:39 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:30:58 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <string.h>
 # include <stddef.h>
 # include <unistd.h>
+
+# define MAX_FD 1025
+# define MAX_LEN_STR 21474836
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 typedef struct s_list
 {
@@ -110,5 +116,12 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-int	ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
+
+char	*get_next_line(int fd);
+
+char	*ft_strcat(char *dest, char *src);
+
+char	*ft_strcpy(char *dst, const char *src);
+
 #endif

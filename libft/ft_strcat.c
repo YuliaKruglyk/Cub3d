@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug.c                                            :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 16:34:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/16 13:42:24 by zyunusov         ###   ########.fr       */
+/*   Created: 2023/01/16 13:29:32 by zyunusov          #+#    #+#             */
+/*   Updated: 2023/01/16 13:29:35 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "libft.h"
 
-void    print_map(t_cub3d *game)
+char	*ft_strcat(char *dest, char *src)
 {
-    int i;
+	unsigned int	i;
+	unsigned int	j;
 
-    i = 0;
-    while(game->map_comp[i])
-    {
-        ft_printf("%s", game->map_comp[i]);
-        i++;
-    }
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

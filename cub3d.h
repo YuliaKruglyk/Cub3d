@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/15 17:12:06 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:32:51 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CUB3D_H
 
 # include "libft/libft.h"
-# include "libft/get_next_line.h"
 # include "libft/ft_printf.h"
 # include "mlx/mlx.h"
 # include <fcntl.h>
@@ -44,7 +43,7 @@ int		check_map_exten(const char *map);
 // Function to start parsing the map
 int		parsing_map(t_cub3d *game, const char *map, int fd);
 //Function to read textures and parse
-int		parsing_direc(t_cub3d *game, char *line);
+// int		parsing_direc(t_cub3d *game, char *line);
 
 // =============================MEMORY FREE=====================
 int free_map_comp(t_cub3d *game);

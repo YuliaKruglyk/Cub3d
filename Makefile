@@ -6,7 +6,7 @@
 #    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-#    Updated: 2023/01/15 17:26:04 by zyunusov         ###   ########.fr        #
+#    Updated: 2023/01/16 12:57:45 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ all: directories $(NAME)
 	
 # Make the target executable
 $(NAME): $(OBJS) $(LIBFT_FULL)
-	$(CC) $(CFLAGS) $< $(filter-out $<, $^) -o $@ -lmlx -framework OpenGL -framework AppKit $(LIBFT_FULL)
+	$(CC) $(CFLAGS) $< $(filter-out $<, $^) -o $@ $(LIBFT_FULL)
+#-lmlx -framework OpenGL -framework AppKit
 
 directories: $(OBJ_DIR)
 #Make obj files
@@ -48,7 +49,7 @@ $(OBJ_DIR):
 # Make library archive
 $(LIBFT_FULL): $(LIBFT_PATH)
 	make -sC libft/
-	make -sC ./mlx
+#make -sC ./mlx
 
 clean:
 	make clean -sC ./libft
