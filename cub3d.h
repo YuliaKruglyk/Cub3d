@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/16 13:32:51 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:00:41 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct s_cub3d
 	int			map_h_tmp;
 	int			map_hght;
 	char		**map_comp;
+	int			map_lnght;
+	int			player_x;
+	int			player_y;
 }	t_cub3d;
 
 //============================ERRORS============================
@@ -44,9 +47,13 @@ int		check_map_exten(const char *map);
 int		parsing_map(t_cub3d *game, const char *map, int fd);
 //Function to read textures and parse
 // int		parsing_direc(t_cub3d *game, char *line);
+//Function to count lenght of the each line of the map
+int		ft_strlen1(char *s);
+// Function that will go throww the map and check chars
+int	check_map(t_cub3d *game);
 
 // =============================MEMORY FREE=====================
-int free_map_comp(t_cub3d *game);
+int		free_map_comp(t_cub3d *game);
 
 // +++++++++++++++++++++++DEBUG++++++++++++++++++++++++++++++++++
 void    print_map(t_cub3d *game);
