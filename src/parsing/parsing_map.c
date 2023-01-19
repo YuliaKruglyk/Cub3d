@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/18 14:07:10 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:56:32 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static int	parsing_tex(t_cub3d *game, int fd, char **line)
 	while ((*line) != NULL)
 	{
 		if (**line == 'N' || **line =='S' || **line == 'E' || **line == 'W')
-			res = 0;// parsing_direc(game, *line);
+			res = 0;// parsing_direc
 		else if (**line == 'C' || **line == 'F')
-		 	res = 0;// parsing_colors(game, *line);
+		 	res = 0;// parsing_colors
 		else if (**line != '\0' && (**line == '1' || **line == ' '))
 			return (0);
 		free(*line);
