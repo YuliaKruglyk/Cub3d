@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:16:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/18 16:52:43 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:54:00 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	init_hero_pos(t_cub3d *game, int y, int x)
 {
 	game->player_x = x;
 	game->player_y = y;
-	ft_printf("PLAYER: %c\n", game->map_comp[y][x]);
+	ft_printf("\nPLAYER: %c\n", game->map_comp[y][x]);
 	ft_printf("player x : %d, player y : %d\n", x, y);
 }
 

@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/19 17:57:38 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:32:38 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include "mlx/mlx.h"
 # include <fcntl.h>
 
+typedef struct s_texture
+{
+	char	*file_name;
+}	t_texture;
+
 typedef struct s_cub3d
 {
 	void		*mlx;
@@ -27,6 +32,7 @@ typedef struct s_cub3d
 	int			map_lnght;
 	int			player_x;
 	int			player_y;
+	t_texture	texture[4];
 }	t_cub3d;
 
 //============================ERRORS============================
@@ -38,7 +44,7 @@ int		check_map_exten(const char *map);
 // Function to start parsing the map
 int		parsing_map(t_cub3d *game, const char *map, int fd);
 //Function to read textures and parse
-// int		parsing_direc(t_cub3d *game, char *line);
+int	parsing_dir(char *line, t_cub3d *game);
 //Function to count lenght of the each line of the map
 int		ft_strlen1(char *s);
 // Function that will go throww the map and check chars

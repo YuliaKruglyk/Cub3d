@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/19 17:56:32 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:40:12 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	parsing_tex(t_cub3d *game, int fd, char **line)
 	while ((*line) != NULL)
 	{
 		if (**line == 'N' || **line =='S' || **line == 'E' || **line == 'W')
-			res = 0;// parsing_direc
+			res = parsing_dir(*line, game);
 		else if (**line == 'C' || **line == 'F')
 		 	res = 0;// parsing_colors
 		else if (**line != '\0' && (**line == '1' || **line == ' '))
@@ -53,7 +53,7 @@ static int	calc_lines(t_cub3d *game, const char *map)
 	if (fd == -1)
 		return (allerrors(2));
 	tmp = get_next_line(fd);
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		res++;
 		free(tmp);
@@ -77,7 +77,7 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 	if (calc_lines(game, map) < 3)
 		return (EXIT_FAILURE);
 	// ft_printf("%d\n", game->map_hght);
-	game->map_comp = (char **)malloc(sizeof(char *) *game->map_hght);
+	game->map_comp = (char **)malloc(sizeof(char *) * game->map_hght);
 	if (!game->map_comp)
 		return(allerrors(9));
 	i = -1;
@@ -86,7 +86,7 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 		game->map_comp[i] = malloc(1000);
 		if (game->map_comp[i] == NULL)
 			return (free_map_comp(game));
-		// ft_printf("%s", line);
+		ft_printf("%s", line);
 		ft_memcpy(game->map_comp[i], line, ft_strlen(line));
 		game->map_comp[i][ft_strlen(line) - 1] = '\0';
 		free(line);
@@ -94,5 +94,6 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 	}
 	game->map_comp[i] = NULL;
 	// print_map(game);
+	exit(1);
 	return (check_map(game));
 }
