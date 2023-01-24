@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:16:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/23 14:54:00 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:54:33 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ int	check_map(t_cub3d *game)
 			game->map_lnght = ft_strlen1(game->map_comp[i]);
 	}
 	if (check_chars(game))
-		return (free_map_comp(game));
+		return (free_map_comp_err(game));
 	return (EXIT_SUCCESS);
 }

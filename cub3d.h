@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/23 14:32:38 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:54:54 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ int		ft_strlen1(char *s);
 int		check_map(t_cub3d *game);
 
 // =============================MEMORY FREE=====================
-int		free_map_comp(t_cub3d *game);
-
+//Function for freeing while allocation failes
+int		free_map_comp_err(t_cub3d *game);
+//Function for freein in the end
+void	free_map_comp2(t_cub3d *game);
 // +++++++++++++++++++++++DEBUG++++++++++++++++++++++++++++++++++
 void    print_map(t_cub3d *game);
 #endif

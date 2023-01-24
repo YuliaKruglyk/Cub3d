@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/23 16:40:12 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:53:41 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,27 +73,28 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 
 	if ((parsing_tex(game, fd, &line)))
 		return (EXIT_FAILURE);
-	// ft_printf("tmp = %d\n", game->map_h_tmp);
+	ft_printf("tmp = %d\n", game->map_h_tmp);
 	if (calc_lines(game, map) < 3)
 		return (EXIT_FAILURE);
-	// ft_printf("%d\n", game->map_hght);
+	ft_printf("%d\n", game->map_hght);
 	game->map_comp = (char **)malloc(sizeof(char *) * game->map_hght);
 	if (!game->map_comp)
 		return(allerrors(9));
 	i = -1;
 	while (++i < (game->map_hght))
 	{
+		// printf("hght %d, %d\n", game->map_hght, i);
 		game->map_comp[i] = malloc(1000);
 		if (game->map_comp[i] == NULL)
-			return (free_map_comp(game));
+			return (free_map_comp_err(game));
 		ft_printf("%s", line);
 		ft_memcpy(game->map_comp[i], line, ft_strlen(line));
 		game->map_comp[i][ft_strlen(line) - 1] = '\0';
 		free(line);
+		// ft_printf("HERE!\n");
 		line = get_next_line(fd);
+		// ft_printf("HERE!1\n");
 	}
-	game->map_comp[i] = NULL;
 	// print_map(game);
-	exit(1);
 	return (check_map(game));
 }

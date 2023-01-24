@@ -6,7 +6,7 @@
 #    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-#    Updated: 2023/01/23 15:11:52 by zyunusov         ###   ########.fr        #
+#    Updated: 2023/01/24 10:33:36 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = cub3d
 #Compiler opt
 CC		:= cc
-CFLAGS	:= -Wall -Werror -Wextra -I./mlx #-fsanitize=address
+CFLAGS	:= -Wall -Werror -Wextra -I./mlx -fsanitize=address
 #Sources
 SRC_ROOT		:= src/
 SRC_SUBDIRS		:= debug main parsing errors utils

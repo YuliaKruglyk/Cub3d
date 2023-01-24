@@ -6,18 +6,18 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:28:08 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/18 13:33:52 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:54:47 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int	free_map_comp(t_cub3d *game)
+int	free_map_comp_err(t_cub3d *game)
 {
 	int	tmp_hght;
 
 	tmp_hght = -1;
-	while (++tmp_hght < game-> map_hght)
+	while (++tmp_hght < game->map_hght)
 	{
 		if (game->map_comp[tmp_hght])
 			free(game->map_comp[tmp_hght]);
@@ -25,4 +25,18 @@ int	free_map_comp(t_cub3d *game)
 	if (game->map_comp)
 		free(game->map_comp);
 	return (allerrors(9));
+}
+
+void	free_map_comp2(t_cub3d *game)
+{
+	int	tmp_hght;
+
+	tmp_hght = -1;
+	while (++tmp_hght < game->map_hght)
+	{
+		if (game->map_comp[tmp_hght])
+			free(game->map_comp[tmp_hght]);
+	}
+	if (game->map_comp)
+		free(game->map_comp);
 }
