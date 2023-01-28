@@ -6,12 +6,13 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:08:25 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/23 14:52:27 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/28 11:51:45 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
+//Function to copy texture file names
 static int	dir_utils(t_cub3d *game, char *line, int sign)
 {
 	int		len;
@@ -32,6 +33,7 @@ static int	dir_utils(t_cub3d *game, char *line, int sign)
 	return (0);
 }
 
+//Function to pars textures
 int	parsing_dir(char *line, t_cub3d *game)
 {
 	int	sign;

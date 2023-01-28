@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/24 10:53:41 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/28 11:52:11 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static int	parsing_tex(t_cub3d *game, int fd, char **line)
 	return (0);
 }
 
+//Function to calculate height of the map
 static int	calc_lines(t_cub3d *game, const char *map)
 {
 	int		res;
