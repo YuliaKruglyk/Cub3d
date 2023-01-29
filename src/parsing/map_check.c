@@ -6,12 +6,48 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:16:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/24 10:54:33 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:46:15 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
+//Function to check if map surrounded by walls 
+static int border_utils(t_cub3d *game, int y, int x)
+{
+	if ((y == 0) || (y == game->map_hght - 1) || \
+	(x == 0) || ((unsigned long)x == ft_strlen(game->map_comp[y]) - 1))
+		return (EXIT_FAILURE);
+	if ((game->map_comp[y - 1][x] == ' ') || (game->map_comp[y + 1][x] == ' ') || \
+	(game->map_comp[y][x - 1] == ' ') || (game->map_comp[y][x + 1] == ' '))
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
+
+//Function to check walls 
+static int border_check(t_cub3d *game)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < game->map_hght)
+	{
+		x = 0;
+		while (game->map_comp[y][x])
+		{
+			if (ft_strchr("0NSWE", game->map_comp[y][x]))
+			{
+				if (border_utils(game, y, x))
+					return (allerrors(12));
+			}
+			x++;
+		}
+	}
+	return (EXIT_SUCCESS);
+}
+
+//Function that check extension of the map
 int	check_map_exten(const char *map)
 {
 	char	*tmp;
@@ -22,6 +58,7 @@ int	check_map_exten(const char *map)
 	return (EXIT_SUCCESS);
 }
 
+//Function that writes player position
 static void	init_hero_pos(t_cub3d *game, int y, int x)
 {
 	game->player_x = x;
@@ -30,6 +67,7 @@ static void	init_hero_pos(t_cub3d *game, int y, int x)
 	ft_printf("player x : %d, player y : %d\n", x, y);
 }
 
+//Function to check any invalid chars for the map and detect hero pos
 int	check_chars(t_cub3d *game)
 {
 	int	i;
@@ -58,6 +96,7 @@ int	check_chars(t_cub3d *game)
 	return (EXIT_SUCCESS);
 }
 
+//Function to check map
 int	check_map(t_cub3d *game)
 {
 	int	i;
@@ -69,7 +108,7 @@ int	check_map(t_cub3d *game)
 		if (game->map_lnght < ft_strlen1(game->map_comp[i]))
 			game->map_lnght = ft_strlen1(game->map_comp[i]);
 	}
-	if (check_chars(game))
+	if (check_chars(game) || border_check(game))
 		return (free_map_comp_err(game));
 	return (EXIT_SUCCESS);
 }
