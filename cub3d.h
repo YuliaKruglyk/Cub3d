@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/24 10:54:54 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:49:51 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_cub3d
 	int			map_hght;
 	char		**map_comp;
 	int			map_lnght;
-	int			player_x;
-	int			player_y;
+	float		player_x;
+	float		player_y;
 	t_texture	texture[4];
 }	t_cub3d;
 
