@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:16:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/29 12:54:10 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/29 13:01:39 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int	check_map_exten(const char *map)
 //Function that writes player position
 static void	init_hero_pos(t_cub3d *game, int y, int x)
 {
-	game->player_x = x;
-	game->player_y = y;
+	game->player_x = (float)x;
+	game->player_y = (float)y;
 	ft_printf("\nPLAYER: %c\n", game->map_comp[y][x]);
 	printf("player x : %f, player y : %f\n", game->player_x, game->player_y);
 }
