@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/28 11:52:11 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:05:31 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	parsing_tex(t_cub3d *game, int fd, char **line)
 		if (**line == 'N' || **line =='S' || **line == 'E' || **line == 'W')
 			res = parsing_dir(*line, game);
 		else if (**line == 'C' || **line == 'F')
-		 	res = 0;// parsing_colors
+		 	res = parsing_colors(game, *line, **line);
 		else if (**line != '\0' && (**line == '1' || **line == ' '))
 			return (0);
 		free(*line);
@@ -74,10 +74,10 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 
 	if ((parsing_tex(game, fd, &line)))
 		return (EXIT_FAILURE);
-	ft_printf("tmp = %d\n", game->map_h_tmp);
+	// ft_printf("tmp = %d\n", game->map_h_tmp);
 	if (calc_lines(game, map) < 3)
 		return (EXIT_FAILURE);
-	ft_printf("%d\n", game->map_hght);
+	// ft_printf("%d\n", game->map_hght);
 	game->map_comp = (char **)malloc(sizeof(char *) * game->map_hght);
 	if (!game->map_comp)
 		return(allerrors(9));
