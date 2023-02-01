@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:10:56 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/31 09:25:17 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/01 12:35:30 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static int	parsing_cnum_2(char **line)
 int	parsing_colors(t_cub3d *game, char *line, char ch)
 {
 	int res;
+	static int i = 0;
 	
 	if ((ch == 'C' || ch == 'F'))
 		line++;
@@ -83,17 +84,18 @@ int	parsing_colors(t_cub3d *game, char *line, char ch)
 	res = parsing_cnum(&line);
 	if (res < 0)
 		return (allerrors2(13));
-	game->color.r = res;
-	ft_printf("Red: %d\n", game->color.r);
+	game->color[i].r = res;
+	ft_printf("Red: %d\n", game->color[i].r);
 	res = parsing_cnum(&line);
 	if (res < 0)
 		return (allerrors2(13));
-	game->color.g = res;
-	ft_printf("Green: %d\n", game->color.g);
+	game->color[i].g = res;
+	ft_printf("Green: %d\n", game->color[i].g);
 	res = parsing_cnum_2(&line);
 	if (res < 0)
 		return (allerrors(13));
-	game->color.b = res;
-	ft_printf("Black: %d\n", game->color.b);
+	game->color[i].b = res;
+	ft_printf("Black: %d\n", game->color[i].b);
+	i++;
 	return (EXIT_SUCCESS);
 }

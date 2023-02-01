@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/31 09:24:08 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/01 12:34:14 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_cub3d
 	float		player_x;
 	float		player_y;
 	t_texture	texture[4];
-	t_color		color;
+	t_color		color[2];
 	int			ceil_col;
 	int			floor_col;
 }	t_cub3d;
