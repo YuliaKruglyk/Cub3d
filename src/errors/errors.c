@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:12:41 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/28 11:19:04 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/01/29 13:58:09 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,17 @@ int	allerrors(int i)
 		ft_putstr_fd("Error\nCannot allocate memory\n", 2);
 	else if (i == 10)
 		ft_putstr_fd("Error\nMap is not valid\n", 2);
-	else if (i == 11)
+	return (1);
+}
+
+int allerrors2(int i)
+{
+	if (i == 11)
 		ft_putstr_fd("Error\nMust be only one start position\n", 2);
 	else if (i == 12)
 		ft_putstr_fd("Error\nThe map must be closed/surrounded by walls\n", 2);
+	else if (i == 13)
+		ft_putstr_fd("Error\nWrong floor or celling format\nRight format: \
+		\nF 220,100,0 and C 225,30,0 where R,G,B - colors in range [0,255]\n", 2);
 	return (1);
 }
