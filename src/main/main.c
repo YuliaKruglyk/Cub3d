@@ -6,11 +6,12 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/24 10:52:12 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:43:17 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+#include <stdio.h>
 
 void	free_tex(t_cub3d *game)
 {
@@ -51,7 +52,7 @@ int	main(int argc, char **argv)
 		return (allerrors(2));
 	if (cub3d(argv[1], fd))
 	{
-		// close(fd);
+		close(fd);
 		return (EXIT_FAILURE);
 	}
 	close(fd);

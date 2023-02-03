@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/01 12:34:14 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:44:28 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft/ft_printf.h"
 # include "mlx/mlx.h"
 # include <fcntl.h>
+# include <stdio.h>
 
 typedef struct s_color
 {
