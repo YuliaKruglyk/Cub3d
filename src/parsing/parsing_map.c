@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 14:11:25 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:40:48 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,28 @@ static int	calc_lines(t_cub3d *game, const char *map)
 	return (res);
 }
 
+static int	check_setting(t_cub3d *game)
+{
+	int	i;
+
+	if (game->floor_col > 16777215 || game->ceil_col > 16777215)
+		return(allerrors(13));
+	i = -1;
+	while (++i < 4)
+	{
+		if (game->texture[i].file_name == NULL)
+			return (allerrors(14));
+	}
+	return (EXIT_SUCCESS);
+}
+
 // Function to start parsing the map
 int	parsing_map(t_cub3d *game, const char *map, int fd)
 {
 	char	*line;
 	int		i;
 
-	if ((parsing_tex(game, fd, &line)))
+	if ((parsing_tex(game, fd, &line)) || check_setting(game))
 		return (EXIT_FAILURE);
 	// ft_printf("tmp = %d\n", game->map_h_tmp);
 	if (calc_lines(game, map) < 3)

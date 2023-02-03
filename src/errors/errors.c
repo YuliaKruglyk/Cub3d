@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:12:41 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/29 13:58:09 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:39:15 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,9 @@ int allerrors2(int i)
 	else if (i == 13)
 		ft_putstr_fd("Error\nWrong floor or celling format\nRight format: \
 		\nF 220,100,0 and C 225,30,0 where R,G,B - colors in range [0,255]\n", 2);
+	else if (i == 14)
+		ft_putstr_fd("Error\nTextures weren't set\nRight format:\
+		\nNO (SO, WE, EA) ./path_to_the_texture\
+		\nUse .xpm files as textures\n", 2);
 	return (1);
 }
