@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 12:43:17 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:13:11 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	cub3d(const char *map, int fd)
 	init_game(game);
 	if (parsing_map(game, map, fd))
 		exit(EXIT_FAILURE);
+	printf("Floor: %d, Ceil: %d\n", game->floor_col, game->ceil_col);
 	free_map_comp2(game);
 	free_tex(game);
 	free(game);

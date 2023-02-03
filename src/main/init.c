@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:07 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/23 14:49:30 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:31:00 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	init_game(t_cub3d *game)
 	i = -1;
 	while (++i < 4)
 		game->texture[i].file_name = NULL;
+	game->ceil_col = 0;
+	game->floor_col = 0;
 	// game->mlx = mlx_init();
 	// if (!game->mlx)
 	// {
