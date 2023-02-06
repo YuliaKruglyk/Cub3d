@@ -1,7 +1,7 @@
-NO ./resources/w1.xpm
-SO ./resources/w4.xpm
-WE ./resources/w5.xpm
-EA ./resources/wall8.xpm
+NO ./resources/goldwall.xpm
+SO ./resources/goldprhomb.xpm
+WE ./resources/library.xpm
+EA ./resources/lift.xpm
 
 C      255 ,     230,           255
 F 80,60,30

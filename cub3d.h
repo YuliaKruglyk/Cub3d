@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 13:59:19 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:29:03 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,27 @@
 # include "libft/ft_printf.h"
 # include "mlx/mlx.h"
 # include <fcntl.h>
+# include <math.h>
 # include <stdio.h>
+
+# define WINDOW_W		640
+# define WINDOW_H		480
+# define FOV			1.047f 
+//The ratio between the length of the direction and the camera plane determinates the FOV
+//FOV is 2 * atan(0.66/1.0)=66°
+
+// ARROWS
+#  define UP	126
+#  define DOWN	125
+#  define LEFT	123
+#  define RIGHT	124
+// KEYS
+#  define KEY_W	13
+#  define KEY_A	0
+#  define KEY_S	1
+#  define KEY_D	2
+#  define K_ESC	53
+#  define KEY_Q	12
 
 typedef struct s_color
 {
@@ -26,10 +46,16 @@ typedef struct s_color
 	int b;
 }	t_color;
 
-typedef struct s_texture
+typedef struct s_image
 {
-	char	*file_name;
-}	t_texture;
+	void	*img;
+	char	*adrs;
+	int		bits;
+	int		line_len;
+	int		b_order;
+	int		width;
+	int		height;
+}	t_image;
 
 typedef struct s_cub3d
 {
@@ -40,11 +66,35 @@ typedef struct s_cub3d
 	int			map_lnght;
 	float		player_x;
 	float		player_y;
+	float		view;
+	void		*window;
 	t_texture	texture[4];
 	t_color		color;
 	int			ceil_col;
 	int			floor_col;
+	char		*file_name[4];
+	int         txt_idx;
+	float		txt_w;
+	t_image		texture[4];
+	t_color		color[2];
+	t_image		image;
 }	t_cub3d;
+
+typedef struct s_raycast
+{
+	float	dx;
+	float	dy;
+	int		step_x;
+	int		step_y;
+	float	hor_x;
+	float	map_y;
+	float	map_x;
+	float	vert_y;
+	float	yside_dist;
+	float	xside_dist;
+	float	vert_w;
+	float	hor_w;
+}	t_raycast;
 
 //============================ERRORS============================
 //Function to output err
@@ -71,6 +121,17 @@ int		parsing_colors(t_cub3d *game, char *line, char ch);
 int		free_map_comp_err(t_cub3d *game);
 //Function for freein in the end
 void	free_map_comp2(t_cub3d *game);
+void	free_tex(t_cub3d *game);
 // +++++++++++++++++++++++DEBUG++++++++++++++++++++++++++++++++++
 void    print_map(t_cub3d *game);
+
+void    init_image(t_cub3d *game);
+void	build_window(t_cub3d *game);
+void	raycasting(t_cub3d *game);
+void	build_textures(t_cub3d *game, int width, float dest);
+int	fromfloat(float f);
+int ft_destroy_image(t_cub3d   *game);
+int	keys(int kcode, t_cub3d *game);
+float	ft_ray(t_cub3d *game, float view);
+
 #endif

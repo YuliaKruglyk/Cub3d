@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_dir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:08:25 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/28 11:51:45 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:12:32 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static int	dir_utils(t_cub3d *game, char *line, int sign)
 		return (allerrors(7));
 	tmp[len - 1] = '\0';
 	if (ft_memcmp(".xpm", tmp + len - 5, 4) == 0)
-		game->texture[sign].file_name = ft_strdup(line);
+		game->file_name[sign] = ft_strdup(line);
 	else
 		return (allerrors(7));
-	if (game->texture[sign].file_name == NULL)
+	if (game->file_name[sign] == NULL)
 		return (allerrors(8));
-	ft_printf("Copied direction textures: %s\n", game->texture[sign].file_name);
+	ft_printf("Copied direction textures: %s\n", game->file_name[sign]);
 	return (0);
 }
 
@@ -48,7 +48,7 @@ int	parsing_dir(char *line, t_cub3d *game)
 		sign = 3;
 	else
 		return (allerrors(5));
-	if (game->texture[sign].file_name != NULL)
+	if (game->file_name[sign] != NULL)
 		return (allerrors(6));
 	if (line[2] != ' ')
 		return (allerrors(7));
