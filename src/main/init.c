@@ -28,6 +28,9 @@ void	init_game(t_cub3d *game)
 	game->ceil_col = 13167335;
 	game->floor_col = 5257270;
 	game->map_comp = NULL;
+	game->texture[i].file_name = NULL;
+	game->ceil_col = 0;
+	game->floor_col = 0;
 	// game->mlx = mlx_init();
 	// if (!game->mlx)
 	// {

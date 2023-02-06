@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+#include <stdio.h>
 
 void	free_tex(t_cub3d *game)
 {
@@ -61,7 +62,7 @@ int	main(int argc, char **argv)
 		return (allerrors(2));
 	if (cub3d(argv[1], fd))
 	{
-		// close(fd);
+		close(fd);
 		return (EXIT_FAILURE);
 	}
 	close(fd);

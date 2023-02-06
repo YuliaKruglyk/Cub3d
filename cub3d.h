@@ -67,8 +67,9 @@ typedef struct s_cub3d
 	float		player_x;
 	float		player_y;
 	float		view;
-
 	void		*window;
+	t_texture	texture[4];
+	t_color		color;
 	int			ceil_col;
 	int			floor_col;
 	char		*file_name[4];

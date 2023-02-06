@@ -71,11 +71,21 @@ static int	parsing_cnum_2(char **line)
 	return (i);
 }
 
+static void	parsing_f_c(t_cub3d *game, char ch)
+{
+	if (ch == 'F')
+		game->floor_col = (game->color.r << 16) | (game->color.g << 8) | \
+		game->color.b;
+	else
+		game->ceil_col = (game->color.r << 16) | (game->color.g << 8) | \
+		game->color.b;
+
+}
+
 //Function to parse colors
 int	parsing_colors(t_cub3d *game, char *line, char ch)
 {
 	int res;
-	static int i = 0;
 	
 	if ((ch == 'C' || ch == 'F'))
 		line++;
@@ -84,18 +94,18 @@ int	parsing_colors(t_cub3d *game, char *line, char ch)
 	res = parsing_cnum(&line);
 	if (res < 0)
 		return (allerrors2(13));
-	game->color[i].r = res;
-	ft_printf("Red: %d\n", game->color[i].r);
+	game->color.r = res;
+	ft_printf("Red: %d\n", game->color.r);
 	res = parsing_cnum(&line);
 	if (res < 0)
 		return (allerrors2(13));
-	game->color[i].g = res;
-	ft_printf("Green: %d\n", game->color[i].g);
+	game->color.g = res;
+	ft_printf("Green: %d\n", game->color.g);
 	res = parsing_cnum_2(&line);
 	if (res < 0)
 		return (allerrors(13));
-	game->color[i].b = res;
-	ft_printf("Black: %d\n", game->color[i].b);
-	i++;
+	game->color.b = res;
+	ft_printf("Black: %d\n", game->color.b);
+	parsing_f_c(game, ch);
 	return (EXIT_SUCCESS);
 }

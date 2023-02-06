@@ -3,7 +3,7 @@ SO ./resources/goldprhomb.xpm
 WE ./resources/library.xpm
 EA ./resources/lift.xpm
 
-C      200 ,     230,           255
+C      255 ,     230,           255
 F 80,60,30
 
         1111111111111111111111111 
