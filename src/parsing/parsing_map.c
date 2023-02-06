@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 13:42:32 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:57:19 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	check_setting(t_cub3d *game)
 	i = -1;
 	while (++i < 4)
 	{
-		if (game->texture[i].file_name == NULL)
+		if (game->file_name[i] == NULL)
 			return (allerrors(14));
 	}
 	return (EXIT_SUCCESS);

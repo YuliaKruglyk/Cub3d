@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/06 10:29:03 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:56:53 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ typedef struct s_cub3d
 	float		player_y;
 	float		view;
 	void		*window;
-	t_texture	texture[4];
 	t_color		color;
 	int			ceil_col;
 	int			floor_col;
@@ -76,7 +75,6 @@ typedef struct s_cub3d
 	int         txt_idx;
 	float		txt_w;
 	t_image		texture[4];
-	t_color		color[2];
 	t_image		image;
 }	t_cub3d;
 

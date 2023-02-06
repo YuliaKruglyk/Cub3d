@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-#    Updated: 2023/02/04 13:39:46 by ykruhlyk         ###   ########.fr        #
+#    Updated: 2023/02/06 15:17:34 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = cub3d
 #Compiler opt
 CC		:= cc
 CFLAGS	:= -Wall -Werror -Wextra -I./mlx #-fsanitize=address
-MLX_FLAGS :=  -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS :=  -L./mlx -lmlx -framework OpenGL -framework AppKit
 #Sources
 SRC_ROOT		:= src/
 SRC_SUBDIRS		:= debug main parsing errors utils game
@@ -54,7 +54,7 @@ $(LIBFT_FULL): $(LIBFT_PATH)
 
 clean:
 	make clean -sC ./libft
-	make clean -sC ./mlx
+#make clean -sC ./mlx
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
