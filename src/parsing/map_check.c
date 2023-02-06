@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:16:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/01/29 13:01:39 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/04 11:44:21 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,31 @@ int	check_map_exten(const char *map)
 	return (EXIT_SUCCESS);
 }
 
+static void view_point(t_cub3d *game, const char c)
+{
+    if (c == 'E')
+        game->view = 0.0f * M_PI;
+    else if (c == 'N')
+        game->view = 0.5f * M_PI;
+    else if (c == 'W')
+        game->view = 1.0f * M_PI;
+    else if (c == 'S')
+        game->view = -0.5f * M_PI;
+	printf("\nview: %f", game->view);
+}
+
 //Function that writes player position
 static void	init_hero_pos(t_cub3d *game, int y, int x)
 {
 	game->player_x = (float)x;
 	game->player_y = (float)y;
+	view_point(game, game->map_comp[y][x]);
 	ft_printf("\nPLAYER: %c\n", game->map_comp[y][x]);
 	printf("player x : %f, player y : %f\n", game->player_x, game->player_y);
+	return ;
 }
+
+
 
 //Function to check any invalid chars for the map and detect hero pos
 int	check_chars(t_cub3d *game)
@@ -91,6 +108,7 @@ int	check_chars(t_cub3d *game)
 					return (allerrors(11));
 				hero = 1;
 				init_hero_pos(game, i, j);
+				// view_point(game, game->map_comp[i][j]);
 			}
 		}
 	}
