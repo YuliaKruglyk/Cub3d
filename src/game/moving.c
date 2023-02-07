@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moving.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:46:28 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2023/02/04 12:10:02 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:15:47 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 void	move_func(t_cub3d *game, int direct)
 {
 	float	dist;
-	float	distX;
-	float	distY;
+	float	dist_x;
+	float	dist_y;
 	float	ang;
 
 	ang = game->view + direct * M_PI / 2;
-	distX = 0.3f * cos(ang);
-	distY = 0.3f * sin(ang);
-	dist = ft_ray(game, fromfloat(distY) * M_PI / 2);
-	if (dist * dist < distY * distY)
-		distY = 0.0f;
-	dist = ft_ray(game, (1 - (fromfloat(distX) + 1) / 2) * M_PI);
-	if (dist * dist < distX * distX)
-		distX = 0.0f;
+	dist_x = 0.3f * cos(ang);
+	dist_y = 0.3f * sin(ang);
+	dist = ft_ray(game, fromfloat(dist_y) * M_PI / 2);
+	if (dist * dist < dist_y * dist_y)
+		dist_y = 0.0f;
+	dist = ft_ray(game, (1 - (fromfloat(dist_x) + 1) / 2) * M_PI);
+	if (dist * dist < dist_x * dist_x)
+		dist_x = 0.0f;
 	dist = ft_ray(game, ang);
-	if (dist * dist < distY * distY + distX * distX)
-		if (fromfloat(distY) * fromfloat(distX) != 0)
-			distY = 0.0f;
-	game->player_x = game->player_x + distX;
-	game->player_y = game->player_y - distY;
+	if (dist * dist < dist_y * dist_y + dist_x * dist_x)
+		if (fromfloat(dist_y) * fromfloat(dist_x) != 0)
+			dist_y = 0.0f;
+	game->player_x = game->player_x + dist_x;
+	game->player_y = game->player_y - dist_y;
 }
 
 int	keys(int kcode, t_cub3d *game)

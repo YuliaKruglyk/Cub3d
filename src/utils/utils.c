@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:26:38 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 15:06:53 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:01:16 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strlen1(char *s)
 	int	i;
 
 	i = 0;
-	while(s[i] && (s[i] != '\n'))
+	while (s[i] && (s[i] != '\n'))
 		i++;
 	return (i);
 }

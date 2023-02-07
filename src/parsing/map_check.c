@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:16:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/06 15:44:12 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:20:04 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 #include <stdio.h>
 
 //Function to check if map surrounded by walls 
-static int border_utils(t_cub3d *game, int y, int x)
+static int	border_utils(t_cub3d *game, int y, int x)
 {
 	if ((y == 0) || (y == game->map_hght - 1) || \
 	(x == 0) || ((unsigned long)x == ft_strlen(game->map_comp[y]) - 1))
 		return (EXIT_FAILURE);
-	if ((game->map_comp[y - 1][x] == ' ') || (game->map_comp[y + 1][x] == ' ') || \
+	if ((game->map_comp[y - 1][x] == ' ') || \
+	(game->map_comp[y + 1][x] == ' ') || \
 	(game->map_comp[y][x - 1] == ' ') || (game->map_comp[y][x + 1] == ' '))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
 //Function to check walls 
-static int border_check(t_cub3d *game)
+int	border_check(t_cub3d *game)
 {
 	int	x;
 	int	y;
@@ -48,27 +49,16 @@ static int border_check(t_cub3d *game)
 	return (EXIT_SUCCESS);
 }
 
-//Function that check extension of the map
-int	check_map_exten(const char *map)
+static void	view_point(t_cub3d *game, const char c)
 {
-	char	*tmp;
-
-	tmp = ft_strrchr(map, '.');
-	if (!tmp || ft_strcmp(tmp, ".cub"))
-		return (allerrors(2));
-	return (EXIT_SUCCESS);
-}
-
-static void view_point(t_cub3d *game, const char c)
-{
-    if (c == 'E')
-        game->view = 0.0f * M_PI;
-    else if (c == 'N')
-        game->view = 0.5f * M_PI;
-    else if (c == 'W')
-        game->view = 1.0f * M_PI;
-    else if (c == 'S')
-        game->view = -0.5f * M_PI;
+	if (c == 'E')
+		game->view = 0.0f * M_PI;
+	else if (c == 'N')
+		game->view = 0.5f * M_PI;
+	else if (c == 'W')
+		game->view = 1.0f * M_PI;
+	else if (c == 'S')
+		game->view = -0.5f * M_PI;
 	printf("\nview: %f", game->view);
 }
 
@@ -82,8 +72,6 @@ static void	init_hero_pos(t_cub3d *game, int y, int x)
 	printf("player x : %f, player y : %f\n", game->player_x, game->player_y);
 	return ;
 }
-
-
 
 //Function to check any invalid chars for the map and detect hero pos
 int	check_chars(t_cub3d *game)
@@ -99,7 +87,6 @@ int	check_chars(t_cub3d *game)
 		j = -1;
 		while (game->map_comp[i][++j] != '\0')
 		{
-			// ft_printf("HEre: %c\n", game->map_comp[i][j]);
 			if (!ft_strchr(" 01NSEW", game->map_comp[i][j]))
 				return (allerrors(10));
 			if (ft_strchr("NSEW", game->map_comp[i][j]))
@@ -108,26 +95,8 @@ int	check_chars(t_cub3d *game)
 					return (allerrors(11));
 				hero = 1;
 				init_hero_pos(game, i, j);
-				// view_point(game, game->map_comp[i][j]);
 			}
 		}
 	}
-	return (EXIT_SUCCESS);
-}
-
-//Function to check map
-int	check_map(t_cub3d *game)
-{
-	int	i;
-
-	game->map_lnght = ft_strlen1(game->map_comp[0]);
-	i = -1;
-	while (++i < game->map_hght)
-	{
-		if (game->map_lnght < ft_strlen1(game->map_comp[i]))
-			game->map_lnght = ft_strlen1(game->map_comp[i]);
-	}
-	if (check_chars(game) || border_check(game))
-		return (free_map_comp_err(game));
 	return (EXIT_SUCCESS);
 }

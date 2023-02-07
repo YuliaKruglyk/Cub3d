@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/06 14:57:19 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:02:47 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static int	parsing_tex(t_cub3d *game, int fd, char **line)
 	free(tmp);
 	while ((*line) != NULL)
 	{
-		if (**line == 'N' || **line =='S' || **line == 'E' || **line == 'W')
+		if (**line == 'N' || **line == 'S' || **line == 'E' || **line == 'W')
 			res = parsing_dir(*line, game);
 		else if (**line == 'C' || **line == 'F')
-		 	res = parsing_colors(game, *line, **line);
+			res = parsing_colors(game, *line, **line);
 		else if (**line != '\0' && (**line == '1' || **line == ' '))
 			return (0);
 		free(*line);
@@ -71,7 +71,7 @@ static int	check_setting(t_cub3d *game)
 	int	i;
 
 	if (game->floor_col > 16777215 || game->ceil_col > 16777215)
-		return(allerrors(13));
+		return (allerrors(13));
 	i = -1;
 	while (++i < 4)
 	{
@@ -89,17 +89,14 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 
 	if ((parsing_tex(game, fd, &line)) || check_setting(game))
 		return (EXIT_FAILURE);
-	// ft_printf("tmp = %d\n", game->map_h_tmp);
 	if (calc_lines(game, map) < 3)
 		return (EXIT_FAILURE);
-	// ft_printf("%d\n", game->map_hght);
 	game->map_comp = (char **)malloc(sizeof(char *) * game->map_hght);
 	if (!game->map_comp)
-		return(allerrors(9));
+		return (allerrors(9));
 	i = -1;
 	while (++i < (game->map_hght))
 	{
-		// printf("hght %d, %d\n", game->map_hght, i);
 		game->map_comp[i] = malloc(1000);
 		if (game->map_comp[i] == NULL)
 			return (free_map_comp_err(game));
@@ -107,10 +104,7 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 		ft_memcpy(game->map_comp[i], line, ft_strlen(line));
 		game->map_comp[i][ft_strlen(line) - 1] = '\0';
 		free(line);
-		// ft_printf("HERE!\n");
 		line = get_next_line(fd);
-		// ft_printf("HERE!1\n");
 	}
-	// print_map(game);
 	return (check_map(game));
 }

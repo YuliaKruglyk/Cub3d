@@ -6,7 +6,7 @@
 #    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-#    Updated: 2023/02/06 15:17:34 by zyunusov         ###   ########.fr        #
+#    Updated: 2023/02/07 18:22:45 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS	:= -Wall -Werror -Wextra -I./mlx #-fsanitize=address
 MLX_FLAGS :=  -L./mlx -lmlx -framework OpenGL -framework AppKit
 #Sources
 SRC_ROOT		:= src/
-SRC_SUBDIRS		:= debug main parsing errors utils game
+SRC_SUBDIRS		:= main parsing errors utils game
 SRC_DIR			:= $(addprefix $(SRC_ROOT), $(SRC_SUBDIRS))
 SRCS			:= $(foreach subdir, $(SRC_DIR), $(wildcard $(subdir)/*.c))
 #Libft library
@@ -50,11 +50,11 @@ $(OBJ_DIR):
 # Make library archive
 $(LIBFT_FULL): $(LIBFT_PATH)
 	make -sC libft/
-#make -sC ./mlx
+	make -sC ./mlx
 
 clean:
 	make clean -sC ./libft
-#make clean -sC ./mlx
+	make clean -sC ./mlx
 	rm -rf $(OBJ_DIR)
 
 fclean: clean

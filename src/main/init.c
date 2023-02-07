@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:07 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/06 15:22:03 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:08:19 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_game(t_cub3d *game)
 	game->map_h_tmp = 0;
 	i = -1;
 	while (++i < 4)
-	{ 
+	{
 		game->file_name[i] = NULL;
 		game->texture[i].img = NULL;
 	}
@@ -31,9 +31,4 @@ void	init_game(t_cub3d *game)
 	game->ceil_col = 0;
 	game->floor_col = 0;
 	game->mlx = mlx_init();
-	// if (!game->mlx)
-	// {
-	// 	ft_putstr_fd("Error\nCannot allocate memory for mlx\n", 2);
-	// 	exit(1);
-	// }
 }

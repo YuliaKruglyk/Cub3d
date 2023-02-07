@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_dir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:08:25 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 11:12:32 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:02:57 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

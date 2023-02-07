@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:12:41 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 14:39:15 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:16:51 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	allerrors(int i)
 	return (1);
 }
 
-int allerrors2(int i)
+int	allerrors2(int i)
 {
 	if (i == 11)
 		ft_putstr_fd("Error\nMust be only one start position\n", 2);

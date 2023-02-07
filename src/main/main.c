@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/06 15:23:10 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:08:07 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	free_tex(t_cub3d *game)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < 4)
@@ -37,22 +37,17 @@ int	cub3d(const char *map, int fd)
 	init_image(game);
 	ft_printf("images inited\n.......\n");
 	game->window = mlx_new_window(game->mlx, WINDOW_W, WINDOW_H, "cub3d");
-
 	build_window(game);
-
 	mlx_hook(game->window, 2, 0, keys, game);
 	mlx_hook(game->window, 17, 0, ft_destroy_image, game);
 	mlx_loop(game->mlx);
-	// free_map_comp2(game);
-	// free_tex(game);
-	// free(game);
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
 	int	fd;
-	
+
 	if (argc != 2)
 		return (allerrors(1));
 	if (check_map_exten(argv[1]))
@@ -66,6 +61,5 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	close(fd);
-	
 	return (0);
 }
