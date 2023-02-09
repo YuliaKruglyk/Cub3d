@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:10:56 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/07 18:03:42 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:32:38 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,14 @@ int	parsing_colors(t_cub3d *game, char *line, char ch)
 	if (res < 0)
 		return (allerrors2(13));
 	game->color.r = res;
-	ft_printf("Red: %d\n", game->color.r);
 	res = parsing_cnum(&line);
 	if (res < 0)
 		return (allerrors2(13));
 	game->color.g = res;
-	ft_printf("Green: %d\n", game->color.g);
 	res = parsing_cnum_2(&line);
 	if (res < 0)
 		return (allerrors(13));
 	game->color.b = res;
-	ft_printf("Black: %d\n", game->color.b);
 	parsing_f_c(game, ch);
 	return (EXIT_SUCCESS);
 }

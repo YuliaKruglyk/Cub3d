@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/07 18:08:07 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:06:07 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ void	free_tex(t_cub3d *game)
 	}
 }
 
+static int check_player(t_cub3d *game)
+{
+	if (!game->player_x && !game->player_y)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+	
+}
+
 int	cub3d(const char *map, int fd)
 {
 	t_cub3d	*game;
@@ -34,8 +42,12 @@ int	cub3d(const char *map, int fd)
 	game->mlx = mlx_init();
 	if (parsing_map(game, map, fd))
 		exit(EXIT_FAILURE);
+	if (check_player(game))
+	{
+		allerrors2(15);
+		exit(EXIT_FAILURE);
+	}
 	init_image(game);
-	ft_printf("images inited\n.......\n");
 	game->window = mlx_new_window(game->mlx, WINDOW_W, WINDOW_H, "cub3d");
 	build_window(game);
 	mlx_hook(game->window, 2, 0, keys, game);

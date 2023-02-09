@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:07:07 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/07 18:08:19 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:51:26 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ void	init_game(t_cub3d *game)
 	game->map_comp = NULL;
 	game->ceil_col = 0;
 	game->floor_col = 0;
+	game->player_x = 0;
+	game->player_y = 0;
 	game->mlx = mlx_init();
 }

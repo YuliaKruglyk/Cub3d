@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:12:41 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/07 18:16:51 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:06:26 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ int	allerrors2(int i)
 		ft_putstr_fd("Error\nTextures weren't set\nRight format:\
 		\nNO (SO, WE, EA) ./path_to_the_texture\
 		\nUse .xpm files as textures\n", 2);
+	else if (i == 15)
+		ft_putstr_fd("Error\nNo players on the map\nCheck for letters:\
+		\nN, S, W, E!!!\n", 2);
 	return (1);
 }

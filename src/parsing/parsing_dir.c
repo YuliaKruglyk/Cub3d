@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:08:25 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/07 18:02:57 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:31:57 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	dir_utils(t_cub3d *game, char *line, int sign)
 		return (allerrors(7));
 	if (game->file_name[sign] == NULL)
 		return (allerrors(8));
-	ft_printf("Copied direction textures: %s\n", game->file_name[sign]);
 	return (0);
 }
 
