@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/09 14:06:07 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:15:53 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@ void	free_tex(t_cub3d *game)
 	}
 }
 
-static int check_player(t_cub3d *game)
+static int	check_player(t_cub3d *game)
 {
 	if (!game->player_x && !game->player_y)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
-	
 }
 
 int	cub3d(const char *map, int fd)
