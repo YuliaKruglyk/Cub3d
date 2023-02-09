@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:08:25 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/09 13:31:57 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:13:21 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static int	dir_utils(t_cub3d *game, char *line, int sign)
 {
 	int		len;
 	char	*tmp;
+	int		fd;
 
 	tmp = line;
 	len = ft_strlen(line);
@@ -29,6 +30,13 @@ static int	dir_utils(t_cub3d *game, char *line, int sign)
 		return (allerrors(7));
 	if (game->file_name[sign] == NULL)
 		return (allerrors(8));
+	fd = open(game->file_name[sign], O_RDONLY);
+	if (fd < 0)
+	{
+		close(fd);
+		return (allerrors(7));
+	}
+	close(fd);
 	return (0);
 }
 
