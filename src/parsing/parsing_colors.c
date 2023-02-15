@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_colors.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:10:56 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/03 13:42:18 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:11:19 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	parsing_cnum(char **line)
 	while ((**line) && (**line) != ',' && (**line) != ' ')
 	{
 		if (ft_isdigit(**line))
-			str[i] = **line;	
+			str[i] = **line;
 		else
 			break ;
 		(*line)++;
@@ -41,6 +41,7 @@ static int	parsing_cnum(char **line)
 	(*line)++;
 	return (i);
 }
+
 //Function to convert str to number for only black
 static int	parsing_cnum_2(char **line)
 {
@@ -53,7 +54,7 @@ static int	parsing_cnum_2(char **line)
 	while ((**line) && (**line) != ' ')
 	{
 		if (ft_isdigit(**line))
-			str[i] = **line;	
+			str[i] = **line;
 		else
 			break ;
 		(*line)++;
@@ -79,14 +80,13 @@ static void	parsing_f_c(t_cub3d *game, char ch)
 	else
 		game->ceil_col = (game->color.r << 16) | (game->color.g << 8) | \
 		game->color.b;
-
 }
 
 //Function to parse colors
 int	parsing_colors(t_cub3d *game, char *line, char ch)
 {
-	int res;
-	
+	int	res;
+
 	if ((ch == 'C' || ch == 'F'))
 		line++;
 	if (*line != ' ')
@@ -95,17 +95,14 @@ int	parsing_colors(t_cub3d *game, char *line, char ch)
 	if (res < 0)
 		return (allerrors2(13));
 	game->color.r = res;
-	ft_printf("Red: %d\n", game->color.r);
 	res = parsing_cnum(&line);
 	if (res < 0)
 		return (allerrors2(13));
 	game->color.g = res;
-	ft_printf("Green: %d\n", game->color.g);
 	res = parsing_cnum_2(&line);
 	if (res < 0)
-		return (allerrors(13));
+		return (allerrors2(13));
 	game->color.b = res;
-	ft_printf("Black: %d\n", game->color.b);
 	parsing_f_c(game, ch);
 	return (EXIT_SUCCESS);
 }

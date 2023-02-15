@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-#    Updated: 2023/02/04 13:39:46 by ykruhlyk         ###   ########.fr        #
+#    Updated: 2023/02/13 12:58:50 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ NAME = cub3d
 #Compiler opt
 CC		:= cc
 CFLAGS	:= -Wall -Werror -Wextra -I./mlx #-fsanitize=address
-MLX_FLAGS :=  -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS :=  -L./mlx -lmlx -framework OpenGL -framework AppKit
 #Sources
 SRC_ROOT		:= src/
-SRC_SUBDIRS		:= debug main parsing errors utils game
+SRC_SUBDIRS		:= main parsing errors utils game
 SRC_DIR			:= $(addprefix $(SRC_ROOT), $(SRC_SUBDIRS))
 SRCS			:= $(foreach subdir, $(SRC_DIR), $(wildcard $(subdir)/*.c))
 #Libft library
@@ -50,7 +50,7 @@ $(OBJ_DIR):
 # Make library archive
 $(LIBFT_FULL): $(LIBFT_PATH)
 	make -sC libft/
-#make -sC ./mlx
+	make -sC ./mlx
 
 clean:
 	make clean -sC ./libft
