@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 08:46:52 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2023/02/09 16:36:46 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:24:14 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_destroy_image(t_cub3d *game)
 		i++;
 	}
 	free_map_comp2(game);
+	free_tex(game);
 	exit(0);
 }
 

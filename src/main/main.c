@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:57:17 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/15 12:55:06 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:34:20 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ void	free_tex(t_cub3d *game)
 static int	check_player(t_cub3d *game)
 {
 	if (!game->player_x && !game->player_y)
+	{
+		free_map_comp2(game);
+		free_tex(game);
 		return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -49,7 +53,7 @@ int	cub3d(const char *map, int fd)
 	if (check_player(game))
 	{
 		allerrors2(15);
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	init_image(game);
 	game->window = mlx_new_window(game->mlx, WINDOW_W, WINDOW_H, "cub3d");
