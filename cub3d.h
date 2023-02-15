@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:58:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/07 18:22:01 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/15 21:13:44 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUB3D_H
 
 # include "libft/libft.h"
-# include "libft/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 # include "mlx/mlx.h"
 # include <fcntl.h>
 # include <math.h>

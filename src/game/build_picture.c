@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:49:09 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2023/02/15 19:27:28 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/15 21:28:35 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void	build_window(t_cub3d *game)
 	build_floor_and_celling(game);
 	raycasting(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->image.img, 0, 0);
-	// mlx_destroy_image(game->mlx, game->image.img);
+	mlx_destroy_image(game->mlx, game->image.img);
 }
