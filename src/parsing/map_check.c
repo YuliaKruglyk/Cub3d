@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:16:09 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/15 21:22:15 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/15 23:02:25 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ static int	border_utils(t_cub3d *game, int y, int x)
 	{
 		if ((game->map_comp[y - 1][0] == '\0') || \
 		(game->map_comp[y + 1][0] == '\0'))
+			return (EXIT_FAILURE);
+		if ((game->map_comp[y - 1][x] == '\0') || \
+		(game->map_comp[y + 1][x] == '\0'))
 			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/15 21:22:07 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/15 22:54:30 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 	i = -1;
 	while (++i < (game->map_hght))
 	{
-		game->map_comp[i] = malloc(1000);
+		game->map_comp[i] =  malloc(sizeof(char) * 1000);
 		if (game->map_comp[i] == NULL)
 			return (free_map_comp_err(game));
 		ft_memcpy(game->map_comp[i], line, ft_strlen(line));
