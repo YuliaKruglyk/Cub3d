@@ -1,64 +1,3 @@
-# # **************************************************************************** #
-# #                                                                              #
-# #                                                         :::      ::::::::    #
-# #    Makefile                                           :+:      :+:    :+:    #
-# #                                                     +:+ +:+         +:+      #
-# #    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
-# #                                                 +#+#+#+#+#+   +#+            #
-# #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-# #    Updated: 2023/02/15 21:18:10 by zyunusov         ###   ########.fr        #
-# #                                                                              #
-# # **************************************************************************** #
-
-# NAME = cub3d
-
-# SRCS = main.c \
-# 		build_picture.c \
-# 		errors.c free_all.c \
-# 		init.c map_check.c \
-# 		map_check_2.c \
-# 		moving.c \
-# 		parsing_colors.c \
-# 		parsing_dir.c \
-# 		parsing_map.c \
-# 		raycasting.c \
-# 		start.c \
-# 		utils.c
-
-# OBJS = $(SRCS:.c=.o)
-
-# CC = gcc 
-# MFLAGS = ./mlx/libmlx.a ./libft/libft.a ./get_next_line/get_next_line.a
-
-# CFLAGS = -Wall -Wextra -Werror  -I./mlx -I./libft -I./get_next_line -g
-# RM = rm -rf
-
-# all :$(MFLAGS) $(NAME)
-
-# $(MFLAGS):
-# 	make -sC ./libft
-# 	make -sC ./mlx
-# 	make -sC ./get_next_line
-	
-# $(NAME): $(OBJS)
-# 	$(CC) $(OBJS) $(CFLAGS) $(MFLAGS) -framework OpenGL -framework AppKit -o $(NAME)
-
-# clean:
-# 	make clean -sC ./libft
-# 	make clean -sC ./mlx
-# 	make clean -sC ./get_next_line
-# 	$(RM) ./*.o
-
-# fclean: clean
-# 	make fclean -sC ./libft
-# 	make fclean -sC ./get_next_line
-# 	$(RM) $(NAME)
-	
-# re: fclean all
-
-# .PHONY: all clean fclean re
-
-
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -67,7 +6,7 @@
 #    By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:54:56 by zyunusov          #+#    #+#              #
-#    Updated: 2023/02/15 14:13:17 by zyunusov         ###   ########.fr        #
+#    Updated: 2023/02/16 17:06:00 by zyunusov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

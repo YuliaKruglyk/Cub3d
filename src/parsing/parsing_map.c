@@ -6,7 +6,7 @@
 /*   By: zyunusov <zyunusov@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:25:57 by zyunusov          #+#    #+#             */
-/*   Updated: 2023/02/16 12:45:17 by zyunusov         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:31:18 by zyunusov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ int	parsing_map(t_cub3d *game, const char *map, int fd)
 		if (game->map_comp[i] == NULL)
 			return (free_map_comp_err(game));
 		ft_memcpy(game->map_comp[i], line, ft_strlen(line));
-		game->map_comp[i][ft_strlen(line) - 1] = '\0';
+		if (game->map_comp[i][ft_strlen(line) - 1] == '\n')
+			game->map_comp[i][ft_strlen(line) - 1] = '\0';
 		free(line);
 		line = get_next_line(fd);
 	}
